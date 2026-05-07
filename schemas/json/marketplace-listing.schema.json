@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agenext.example/schemas/marketplace-listing.schema.json",
+  "title": "Agent Marketplace Listing",
+  "type": "object",
+  "required": [
+    "listing_id",
+    "agent_id",
+    "publisher_id",
+    "name",
+    "short_description",
+    "categories",
+    "capabilities",
+    "pricing_plans",
+    "lifecycle_state",
+    "verification_status"
+  ],
+  "properties": {
+    "listing_id": { "type": "string", "minLength": 1 },
+    "agent_id": { "type": "string", "minLength": 1 },
+    "publisher_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "short_description": { "type": "string", "minLength": 1, "maxLength": 280 },
+    "long_description": { "type": "string" },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["a2a", "acp", "anp", "mcp", "openapi", "asyncapi", "webhook", "custom"]
+      },
+      "uniqueItems": true
+    },
+    "documentation_url": { "type": "string", "format": "uri" },
+    "demo_url": { "type": "string", "format": "uri" },
+    "support_url": { "type": "string", "format": "uri" },
+    "privacy_url": { "type": "string", "format": "uri" },
+    "terms_url": { "type": "string", "format": "uri" },
+    "pricing_plans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["plan_id", "name", "billing_model"],
+        "properties": {
+          "plan_id": { "type": "string" },
+          "name": { "type": "string" },
+          "billing_model": {
+            "type": "string",
+            "enum": ["free", "trial", "subscription", "usage_based", "enterprise"]
+          },
+          "price_amount": { "type": "number", "minimum": 0 },
+          "price_currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+          "usage_limits": { "type": "object" },
+          "features": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "deployment_options": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["hosted", "self_hosted", "private_cloud", "bring_your_own_key", "enterprise_managed"]
+      },
+      "uniqueItems": true
+    },
+    "data_access_profile": { "type": "object" },
+    "compliance_profile": { "type": "object" },
+    "trust_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "verification_status": {
+      "type": "string",
+      "enum": ["unverified", "pending", "verified", "failed", "expired", "revoked"]
+    },
+    "lifecycle_state": {
+      "type": "string",
+      "enum": ["draft", "pending_review", "changes_requested", "approved", "published", "suspended", "quarantined", "deprecated", "delisted", "archived", "deleted"]
+    },
+    "published_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": false
+}

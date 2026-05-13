@@ -1,0 +1,13 @@
+{
+  "agent_id": "agent_dify_001",
+  "did": "did:web:agents.agennext.dev:dify-enterprise-agent",
+  "publisher_id": "publisher_dify",
+  "publisher_did": "did:web:dify.ai",
+  "name": "Dify Enterprise Agent",
+  "source_repository": "https://github.com/langgenius/dify",
+  "short_description": "Enterprise-grade agent application built on Dify.",
+  "categories": ["enterprise", "application-platform"],
+  "capabilities": ["workflow_orchestration", "knowledge_base", "api_publishing"],
+  "verification_status": "source_verified",
+  "lifecycle_state": "active"
+}

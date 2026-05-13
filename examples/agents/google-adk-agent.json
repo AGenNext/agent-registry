@@ -1,0 +1,14 @@
+{
+  "agent_id": "agent_google_adk_001",
+  "did": "did:web:agents.agennext.dev:google-adk-agent",
+  "publisher_id": "publisher_google",
+  "publisher_did": "did:web:google.com",
+  "name": "Google ADK Agent",
+  "source_repository": "https://github.com/google/adk-python",
+  "short_description": "Production-grade agent built using Google's Agent Development Kit.",
+  "categories": ["framework", "agent-development"],
+  "capabilities": ["tool_calling", "session_management", "evaluation", "deployment"],
+  "protocol_bindings": ["mcp", "openapi"],
+  "verification_status": "source_verified",
+  "lifecycle_state": "active"
+}

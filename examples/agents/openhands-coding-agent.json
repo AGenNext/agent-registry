@@ -1,0 +1,15 @@
+{
+  "agent_id": "agent_opensource_openhands_001",
+  "did": "did:web:agents.agennext.dev:openhands-coding-agent",
+  "publisher_id": "publisher_all_hands_ai",
+  "publisher_did": "did:web:all-hands.dev",
+  "name": "OpenHands Coding Agent",
+  "source_repository": "https://github.com/All-Hands-AI/OpenHands",
+  "version": "1.0.0",
+  "short_description": "Autonomous software engineering agent based on OpenHands.",
+  "categories": ["engineering", "coding"],
+  "capabilities": ["code_generation", "bug_fixing", "terminal_execution", "pull_request_creation"],
+  "protocol_bindings": ["mcp", "openapi"],
+  "verification_status": "verified",
+  "lifecycle_state": "active"
+}
